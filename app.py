@@ -14,7 +14,7 @@ def main():
     elif page =="Predict your health":
         predict()
     elif page == "Exploratory Data Analysis":
-        pass
+        eda()
     elif page == "About us":
         about_us()
 
