@@ -86,11 +86,7 @@ def predict():
         else:
             heart_disease =0
 
-        # if ever_married =="Yes":
-        #     ever_married = 1
-        # else:
-        #     ever_married = 0
-
+        
         classifier_loaded = data["model"]
         le_gender = data["le_gender"]
         le_marriage = data["le_marriage"]
@@ -99,7 +95,8 @@ def predict():
         le_smoke = data["le_smoke"]
 
         array = np.array([[gender, age, hypertension, heart_disease, ever_married, work_type, Residence_type, avg_glucose_level, bmi, smoking_status]])
-        st.write(array.transpose())
+
+        # st.write(array.transpose())
 
         array[:, 0] =  le_gender.transform(array[:, 0])
         array[:, 4] = le_marriage.transform(array[:, 4])
@@ -113,13 +110,13 @@ def predict():
         X = pd.DataFrame(data = array, 
                         index = index_values,
                         columns = column_values)
-        st.write(X.transpose())
+        # st.write(X.transpose())
         X = sc.transform(X)
         y_pred = classifier_loaded.predict(X)
         st.write("----")
         st.header("Result")
         if y_pred == 0:
-            st.write("You are classified to non-stroke category")
+            st.subheader("You are classified to non-stroke category")
         else:
-            st.write("You are classified to stroke cateogry")
+            st.subheader("You are classified to stroke cateogry")
         
