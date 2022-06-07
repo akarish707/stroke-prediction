@@ -7,12 +7,14 @@ def main():
     st.title("Stroke Prediction")
     st.write("----")
 
-    page = st.selectbox("",['Home', 'Predict your health', 'About us'])
+    page = st.selectbox("",['Home', 'Predict your health','Exploratory Data Analysis', 'About us'])
 
     if page =="Home":
         about_stroke()
     elif page =="Predict your health":
         predict()
+    elif page == "Exploratory Data Analysis":
+        eda()
     elif page == "About us":
         about_us()
 

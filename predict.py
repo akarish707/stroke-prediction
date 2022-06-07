@@ -119,4 +119,3 @@ def predict():
             st.subheader("You are classified to non-stroke category")
         else:
             st.subheader("You are classified to stroke cateogry")
-        
