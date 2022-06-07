@@ -2,3 +2,6 @@ matplotlib
 seaborn
 numpy
 plotly
+sklearn
+sklearn
+imblearn
