@@ -117,5 +117,7 @@ def predict():
         st.header("Result")
         if y_pred == 0:
             st.subheader("You are classified to non-stroke category")
+            st.image("asset/image/thumbs-up-doctor.jpg")
         else:
-            st.subheader("You are classified to stroke cateogry")
+            st.subheader("You are classified to stroke category")
+            st.image("asset/image/doctor-explains.jpg")
