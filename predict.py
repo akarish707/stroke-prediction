@@ -21,6 +21,7 @@ import pickle
 def predict():
     st.header("Predict stroke")
     st.subheader("Predicting stroke with KNN algorithm")
+    st.write("Please insert your data by filling the form below.")
 
 
     def load_model():
