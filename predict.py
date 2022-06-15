@@ -1,3 +1,4 @@
+from time import time
 import streamlit as st
 
 import pandas as pd
@@ -18,9 +19,11 @@ from imblearn.over_sampling import SMOTE
 import joblib
 import pickle
 
+import time
+
 def predict():
     st.header("Predict stroke")
-    st.subheader("Predicting stroke with KNN algorithm")
+    # st.subheader("Predicting stroke with KNN algorithm")
     st.write("Please insert your data by filling the form below.")
 
 
@@ -61,22 +64,35 @@ def predict():
         "formerly smoked",
         "smokes"
     )
+    
+    # columns
+    col1, col2 = st.columns(2)
+    # left column
+    with col1:
 
-    gender = st.selectbox("Gender", gender_list)
-    hypertension = st.selectbox("Hypertension", options=("Yes", "No"))
-    heart_disease = st.selectbox("Heart disease", options=("Yes", "No"))
-    ever_married = 	st.selectbox("Ever married?", options=("Yes", "No"))
-    work_type = st.selectbox("Work type", options=work_type_list)
-    Residence_type = st.selectbox("Residence type", options=Residence_type_list)
-    smoking_status = st.selectbox("Smoking status", options=smoking_status_list)
-    age = st.slider("Age", min_value=1, max_value=100, step=1)
-    avg_glucose_level = st.slider("Average glucose level", min_value=50.0, max_value=300.0, step=0.1)
-    bmi = st.slider("BMI", min_value=10.0, max_value=100.0, step = 0.1)
+        gender = st.selectbox("Gender", gender_list)
+        hypertension = st.selectbox("Hypertension", options=("Yes", "No"))
+        heart_disease = st.selectbox("Heart disease", options=("Yes", "No"))
+        ever_married = 	st.selectbox("Ever married?", options=("Yes", "No"))
+        work_type = st.selectbox("Work type", options=work_type_list)
+    
+    # right column
+    with col2:
+
+        Residence_type = st.selectbox("Residence type", options=Residence_type_list)
+        smoking_status = st.selectbox("Smoking status", options=smoking_status_list)
+        age = st.slider("Age", min_value=1, max_value=100, step=1)
+        avg_glucose_level = st.slider("Average glucose level", min_value=50.0, max_value=300.0, step=0.1)
+        bmi = st.slider("BMI", min_value=10.0, max_value=100.0, step = 0.1)
     
     submit = st.button("Predict")
     
+    # if user click predict
     if submit:
         
+        with st.spinner(text='In progress'):
+            time.sleep(1)
+
         if hypertension == "Yes":
             hypertension = 1
         else:
@@ -122,3 +138,11 @@ def predict():
         else:
             st.subheader("You are classified to stroke category")
             st.image("asset/image/doctor-explains.jpg")
+        
+        # link_number = st.number_input("What subheading do you want to go to?", value=50)
+        # st.markdown(f"<a href='#linkto_{link_number}'>Link to {link_number}</a>", unsafe_allow_html=True)
+
+        # for i in range(100):
+        #     st.markdown(f"<div id='linkto_{i}'></div>", unsafe_allow_html=True)
+        #     st.subheader(f"Subtitle {i}")
+        #     st.write(f"I am a thing {i}")
