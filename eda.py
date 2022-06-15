@@ -405,27 +405,27 @@ def eda():
 classifier.fit(X_train_res, y_train_res.ravel())
 y_pred= classifier.predict(X_test)
     """)
+    
+    # cnf_matrix = confusion_matrix(y_test, y_pred)
 
-    cnf_matrix = confusion_matrix(y_test, y_pred)
+    # fig, ax = plt.subplots()
+    # plt.figure(figsize=(15,15))
+    # sns.heatmap(cnf_matrix, annot=True, fmt='g', ax=ax, cmap="YlGnBu")
+    # ax.set_xlabel('Predicted labels')
+    # ax.set_ylabel('True labels')
+    # ax.set_title('Confusion Matrix')
+    # ax.xaxis.set_ticklabels(['Not Stroke(0)', 'Stroke(1)'])
+    # ax.yaxis.set_ticklabels(['Not Stroke(0)', 'Stroke(1)'])
 
-    fig, ax = plt.subplots()
-    plt.figure(figsize=(15,15))
-    sns.heatmap(cnf_matrix, annot=True, fmt='g', ax=ax, cmap="YlGnBu")
-    ax.set_xlabel('Predicted labels')
-    ax.set_ylabel('True labels')
-    ax.set_title('Confusion Matrix')
-    ax.xaxis.set_ticklabels(['Not Stroke(0)', 'Stroke(1)'])
-    ax.yaxis.set_ticklabels(['Not Stroke(0)', 'Stroke(1)'])
+    # st.pyplot(fig)
+    # plt.figure().clear()
+    # plt.close()
+    # plt.cla()
+    # plt.clf()
 
-    st.pyplot(fig)
-    plt.figure().clear()
-    plt.close()
-    plt.cla()
-    plt.clf()
-
-    st.write("### Classification Report")
-    st.text("\t" + classification_report(y_test, y_pred))
-    st.write('Accuracy Score: ',accuracy_score(y_test,y_pred))
+    # st.write("### Classification Report")
+    # st.text("\t" + classification_report(y_test, y_pred))
+    # st.write('Accuracy Score: ',accuracy_score(y_test,y_pred))
     
 
 

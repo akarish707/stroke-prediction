@@ -1,13 +1,14 @@
 import streamlit as st
 from eda import *
 from other import *
-from predict import predict
+from predict import *
+from evaluation import *
 
 def main():
     st.title("Stroke Prediction")
     st.write("----")
 
-    page = st.selectbox("Navigation",['Home', 'Predict your health','Exploratory Data Analysis',"Evaluation Metric", "Result Visualization", 'About us'])
+    page = st.selectbox("Navigation",['Home', 'Predict your health','Exploratory Data Analysis',"Evaluation Metric", 'About us'])
 
     if page =="Home":
         about_stroke()
@@ -15,6 +16,8 @@ def main():
         predict()
     elif page == "Exploratory Data Analysis":
         eda()
+    elif page == "Evaluation Metric":
+        evaluation()
     elif page == "About us":
         about_us()
 
