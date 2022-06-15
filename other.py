@@ -1,16 +1,77 @@
 import streamlit as st
 
 def about_stroke():
-    st.header("How dangerous is stroke?")
-    st.subheader("Did you know?")
+    
+    col11, col12 = st.columns([2,2])
+    
+    with col11:
+        st.write("# What is stroke?")
+        # st.image("asset/image/stock-photo-walk-training-and-rehabilitation-process-old-asian-stroke-patient-learning-to-use-walker-with-1781080226.jpg")
+    
+    with col12:
+        st.write("""
+        
+        Knowing the signs of a stroke is the first step in stroke prevention. **A stroke, sometimes called a "brain attack,"** occurs when blood flow to an area in the brain is cut off. The brain cells, deprived of the oxygen and glucose needed to survive, die. 
+        ##### If a stroke is not caught early, permanent brain damage or death can result.
+
+        """)
+
+    col21,col22 = st.columns([1,2]) 
+    with col21:
+        st.write("## What are the Symptoms of Stroke?")
+    
+    with col22:
+        st.write("""
+            **Weakness or numbness** of the face, arm, or leg on one side of the body. **Loss of vision** or dimming (like a curtain falling) in one or both eyes.
+            **Loss of speech**, difficulty talking, or understanding what others are saying.
+            Sudden, **severe headache** with no known cause.
+            **Loss of balance** or **unstable walking**, usually combined with another symptom.
+
+            """)
+    
+    col31, col32= st.columns([2,3])
+    with col31:
+        st.write("## Controllable Risk Factors for Stroke:")
+
+    
+    with col32:
+        st.write("""
+        - [High blood pressure](https://www.webmd.com/hypertension-high-blood-pressure/ss/slideshow-hypertension-overview)
+        - [Atrial fibrillation](https://www.webmd.com/heart-disease/atrial-fibrillation/a-fib-overview)
+        - [Uncontrolled diabetes](https://www.webmd.com/cholesterol-management/cholesterol-assessment/default.htm)
+        - High cholesterol
+        - Smoking
+        - Excessive alcohol intake
+        - Obesity
+        - Carotid or [coronary artery disease](https://www.webmd.com/heart-disease/heart-disease-coronary-artery-disease)
+        """)
+
+    col41, col42 = st.columns([1,2])
+    with col41:
+        st.write("## Uncontrollable Risk Factors for Stroke:")
+    
+    with col42:
+        st.write("""
+        - Age (>65)
+    - Gender (Men have more strokes, but women have deadlier strokes)
+    - Race (African-Americans are at increased risk)
+    - Family history of stroke
+    """)
 
     st.write("""
-    
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit. Tristique et egestas quis ipsum suspendisse ultrices gravida. Sit amet aliquam id diam maecenas ultricies. Sed risus ultricies tristique nulla aliquet enim tortor at auctor. Sit amet porttitor eget dolor morbi non arcu risus quis. Ac tortor dignissim convallis aenean et. Nec feugiat in fermentum posuere urna nec tincidunt praesent semper. Eget lorem dolor sed viverra ipsum. Convallis aenean et tortor at risus viverra adipiscing at. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Risus ultricies tristique nulla aliquet enim tortor at auctor. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Amet porttitor eget dolor morbi non arcu. Elementum pulvinar etiam non quam lacus suspendisse. Enim nunc faucibus a pellentesque sit amet. Urna id volutpat lacus laoreet non curabitur gravida. Sed arcu non odio euismod lacinia at quis risus. Tincidunt eget nullam non nisi est sit amet. Duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat.
+    Your doctor can evaluate your risk for stroke and help you control your risk factors. Sometimes, people experience warning signs before a stroke occurs.
 
-    Quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus urna. Suspendisse in est ante in. Purus gravida quis blandit turpis cursus in hac habitasse platea. A lacus vestibulum sed arcu non. Lacinia quis vel eros donec ac odio. Bibendum ut tristique et egestas quis ipsum. Turpis egestas integer eget aliquet nibh. Tincidunt vitae semper quis lectus nulla at volutpat. Malesuada fames ac turpis egestas. Dolor morbi non arcu risus quis varius quam quisque. Massa tincidunt dui ut ornare lectus sit. In fermentum et sollicitudin ac orci phasellus egestas. Dictum sit amet justo donec enim diam. Aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Elit at imperdiet dui accumsan sit amet nulla facilisi morbi. Dictum non consectetur a erat nam at lectus. Nec dui nunc mattis enim ut. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Scelerisque fermentum dui faucibus in.
+    These are called transient ischemic attacks (also called TIA or "mini-stroke") and are short, brief episodes of the stroke symptoms listed above. Some people have no symptoms warning them prior to a stroke or symptoms are so mild they are not noticeable. Regular check-ups are important in catching problems before they become serious. Report any symptoms or risk factors to your doctor.
+    
+    ##### You can check your possibility of your stroke by navigating to our "Predict your health menu" above!
 
     """)
+    
+    st.write("""
+    **Source:**
+    - [Heart Disease and Stroke (WebMD)](https://www.webmd.com/heart-disease/stroke)
+        """)
+
 
 def about_us():
     st.header("We are a team of students👩‍🎓👨‍🎓")
