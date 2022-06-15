@@ -52,24 +52,32 @@ def about_stroke():
     
     with col42:
         st.write("""
-        - Age (>65)
-    - Gender (Men have more strokes, but women have deadlier strokes)
-    - Race (African-Americans are at increased risk)
-    - Family history of stroke
+    > ##### Age (>65)
+
+    > ##### Gender (Men have more strokes, but women have deadlier strokes)
+
+    > ##### Race (African-Americans are at increased risk)
+    
+    > ##### Family history of stroke
+    
     """)
 
     st.write("""
-    Your doctor can evaluate your risk for stroke and help you control your risk factors. Sometimes, people experience warning signs before a stroke occurs.
-
-    These are called transient ischemic attacks (also called TIA or "mini-stroke") and are short, brief episodes of the stroke symptoms listed above. Some people have no symptoms warning them prior to a stroke or symptoms are so mild they are not noticeable. Regular check-ups are important in catching problems before they become serious. Report any symptoms or risk factors to your doctor.
+    ## More info...
     
-    ##### You can check your possibility of your stroke by navigating to our "Predict your health menu" above!
+    > Your doctor can evaluate your risk for stroke and help you control your risk factors. Sometimes, people experience warning signs before a stroke occurs.
+
+    >These are called transient ischemic attacks (also called TIA or "mini-stroke") and are short, brief episodes of the stroke symptoms listed above. Some people have no symptoms warning them prior to a stroke or symptoms are so mild they are not noticeable. Regular check-ups are important in catching problems before they become serious. Report any symptoms or risk factors to your doctor.
+    
+    ##### You can check your possibility of your stroke by navigating to our "Predict your health menu" [above](#stroke-prediction)!
 
     """)
     
     st.write("""
+    ---
     **Source:**
-    - [Heart Disease and Stroke (WebMD)](https://www.webmd.com/heart-disease/stroke)
+
+    ##### [Heart Disease and Stroke (WebMD)](https://www.webmd.com/heart-disease/stroke)
         """)
 
 
