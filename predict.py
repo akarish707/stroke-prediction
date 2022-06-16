@@ -70,18 +70,18 @@ def predict():
     # left column
     with col1:
 
-        gender = st.selectbox("Gender", gender_list)
-        hypertension = st.selectbox("Hypertension", options=("Yes", "No"))
-        heart_disease = st.selectbox("Heart disease", options=("Yes", "No"))
-        ever_married = 	st.selectbox("Ever married?", options=("Yes", "No"))
-        work_type = st.selectbox("Work type", options=work_type_list)
+        gender = st.selectbox("Choose your gender", gender_list)
+        hypertension = st.selectbox("Do you have Hypertension?", options=("Yes", "No"))
+        heart_disease = st.selectbox("Do you have heart disease?", options=("Yes", "No"))
+        ever_married = 	st.selectbox("Are you married?", options=("Yes", "No"))
+        work_type = st.selectbox("Select your work type", options=work_type_list)
     
     # right column
     with col2:
 
-        Residence_type = st.selectbox("Residence type", options=Residence_type_list)
-        smoking_status = st.selectbox("Smoking status", options=smoking_status_list)
-        age = st.slider("Age", min_value=1, max_value=100, step=1)
+        Residence_type = st.selectbox("Choose your residence type", options=Residence_type_list)
+        smoking_status = st.selectbox("Do you smoke?", options=smoking_status_list)
+        age = st.slider("Input your age", min_value=1, max_value=100, step=1)
         avg_glucose_level = st.slider("Average glucose level", min_value=50.0, max_value=300.0, step=0.1)
         bmi = st.slider("BMI", min_value=10.0, max_value=100.0, step = 0.1)
     

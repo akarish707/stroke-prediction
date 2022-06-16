@@ -45,22 +45,23 @@ def about_stroke():
         - Obesity
         - Carotid or [coronary artery disease](https://www.webmd.com/heart-disease/heart-disease-coronary-artery-disease)
         """)
+    
+    st.write("## Uncontrollable Risk Factors for Stroke:")
 
-    col41, col42 = st.columns([1,2])
+    col41, col42, col43, col44 = st.columns([1,1,1,1])
+    # with col41:
+    #     st.write("## Uncontrollable Risk Factors for Stroke:")
     with col41:
-        st.write("## Uncontrollable Risk Factors for Stroke:")
+        st.write("> ### Age (>65)")
     
     with col42:
-        st.write("""
-    > ##### Age (>65)
+        st.write("> ##### Gender (Men have more strokes, but women have deadlier strokes")
 
-    > ##### Gender (Men have more strokes, but women have deadlier strokes)
+    with col43:
+        st.write("> ##### Race (African-Americans are at increased risk)")
 
-    > ##### Race (African-Americans are at increased risk)
-    
-    > ##### Family history of stroke
-    
-    """)
+    with col44:
+        st.write("> ##### Family history of stroke")
 
     st.write("""
     ## More info...
