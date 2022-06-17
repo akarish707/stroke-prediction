@@ -67,12 +67,85 @@ def evaluation():
     from sklearn.model_selection import train_test_split
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
+    st.write("### Test and training data splitting")
+    st.code("""
+    from sklearn.model_selection import train_test_split
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+    """)
+
     sc = StandardScaler()
     X_train = sc.fit_transform(X_train)
     X_test = sc.transform(X_test)
 
+    st.write("### Standard scaling")
+    st.code("""
+    sc = StandardScaler()
+    X_train = sc.fit_transform(X_train)
+    X_test = sc.transform(X_test)
+    """)
+
+    st.write("""
+    
+    ### SMOTE( Synthetic Minority Over-Sampling Technique)
+    Used to handle imbalance data
+
+    """)
+
+    st.code("""
+    print("Before OverSampling, counts of label '1': {}".format(sum(y_train==1)))
+    print("Before OverSampling, counts of label '0': {} \n".format(sum(y_train==0)))
+
     sm = SMOTE(random_state=2)
     X_train_res, y_train_res = sm.fit_resample(X_train, y_train.ravel())
+
+    print('After OverSampling, the shape of train_X: {}'.format(X_train_res.shape))
+    print('After OverSampling, the shape of train_y: {} \n'.format(y_train_res.shape))
+
+    print("After OverSampling, counts of label '1': {}".format(sum(y_train_res==1)))
+    print("After OverSampling, counts of label '0': {}".format(sum(y_train_res==0)))
+    """)
+
+    st.write("Before OverSampling, counts of label '1': {}".format(sum(y_train==1)))
+    st.write("Before OverSampling, counts of label '0': {} \n".format(sum(y_train==0)))
+
+    sm = SMOTE(random_state=2)
+    X_train_res, y_train_res = sm.fit_resample(X_train, y_train.ravel())
+
+    st.write('After OverSampling, the shape of X_train: {}'.format(X_train_res.shape))
+    st.write('After OverSampling, the shape of y_train: {} \n'.format(y_train_res.shape))
+
+    st.write("After OverSampling, counts of label '1': {}".format(sum(y_train_res==1)))
+    st.write("After OverSampling, counts of label '0': {}".format(sum(y_train_res==0)))
+
+
+    st.write("### KNN")
+    st.write("K-nearest neighbor")
+    st.write("Finding the best K neighbor with highest test accuracy")
+
+    st.code("""
+    from sklearn.neighbors import KNeighborsClassifier  
+    best_k = -1
+    best_test_score = -1
+
+    for i in range(1,11):    
+        classifier= KNeighborsClassifier(n_neighbors=i, p=1, weights = "uniform")  
+    #     classifier.fit(X_train, y_train)
+        classifier.fit(X_train_res, y_train_res.ravel())
+        
+        y_pred= classifier.predict(X_test)
+        
+        print("Neighbour = {k}".format(k = i))
+    #     print("The training accuracy: {score}".format(score = (classifier.score(X_train,y_train)*100).round(2)))
+        print("The training accuracy: {score}".format(score = (classifier.score(X_train_res,y_train_res.ravel())*100).round(2)))
+        print('The Test accuracy: {score}'.format(score = (classifier.score(X_test,y_test)*100).round(2)))
+        
+        if classifier.score(X_test,y_test) > best_test_score:
+            best_test_score = classifier.score(X_test, y_test)
+            best_k = i
+
+    print("Best k-neighbor= {k}".format(k = best_k))
+    """)
+
 
     from sklearn.neighbors import KNeighborsClassifier  
     best_k = -1
@@ -85,18 +158,28 @@ def evaluation():
         
         y_pred= classifier.predict(X_test)
         
-        # st.write("**Neighbour** = {k}".format(k = i))
-    #     print("The training accuracy: {score}".format(score = (classifier.score(X_train,y_train)*100).round(2)))
-        # st.write("The training accuracy: {score}".format(score = (classifier.score(X_train_res,y_train_res.ravel())*100).round(2)))
-        # st.write('The Test accuracy: {score}'.format(score = (classifier.score(X_test,y_test)*100).round(2)))
-        # st.write("\n")
+        st.write("**Neighbour** = {k}".format(k = i))
+        print("The training accuracy: {score}".format(score = (classifier.score(X_train,y_train)*100).round(2)))
+        st.write("The training accuracy: {score}".format(score = (classifier.score(X_train_res,y_train_res.ravel())*100).round(2)))
+        st.write('The Test accuracy: {score}'.format(score = (classifier.score(X_test,y_test)*100).round(2)))
+        st.write("\n")
         if classifier.score(X_test,y_test) > best_test_score:
             best_test_score = classifier.score(X_test, y_test)
             best_k = i
 
+    st.write("#### Best k-neighbor= {k}".format(k = best_k))
+
+    st.write("### Predicting with KNN")
+
     classifier= KNeighborsClassifier(n_neighbors=best_k, p=2)  
     classifier.fit(X_train_res, y_train_res.ravel())
     y_pred= classifier.predict(X_test)
+
+    st.code("""
+    classifier= KNeighborsClassifier(n_neighbors=best_k, p=2)  
+classifier.fit(X_train_res, y_train_res.ravel())
+y_pred= classifier.predict(X_test)
+    """)
 
     # evaluation starts here
     cnf_matrix = confusion_matrix(y_test, y_pred)
@@ -117,8 +200,8 @@ def evaluation():
     plt.clf()
 
     st.write("### Classification Report")
-    st.text("\t" + classification_report(y_test, y_pred))
-    st.write('Accuracy Score: ',accuracy_score(y_test,y_pred))
+    st.text(">> " + classification_report(y_test, y_pred))
+    st.write('\n\n ##### Accuracy Score: ',accuracy_score(y_test,y_pred))
     
 
 

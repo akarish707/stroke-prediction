@@ -112,12 +112,24 @@ def eda():
 
     st.write("---")
     st.header("Analysis of the whole dataset")
-    st.write("Let's check unique values within our categorical features")
+    st.subheader("Let's check unique values within our categorical features")
+
+    col11, col12 = st.columns([1,1])
+    
 
     columns = ['gender','hypertension','heart_disease','ever_married','work_type','Residence_type','smoking_status','stroke']
     for i in range(len(columns)):
-        st.write("Unique value of column {column}:".format(column=columns[i]))
-        st.write(df[columns[i]].value_counts(),"\n")
+        
+        if i < len(columns)/2:
+            with col11:
+                st.write("Unique value of column {column}:".format(column=columns[i]))
+                st.write(df[columns[i]].value_counts(),"\n")
+        else:
+            with col12:
+                st.write("Unique value of column {column}:".format(column=columns[i]))
+                st.write(df[columns[i]].value_counts(),"\n")
+
+
     
     st.write("Now let's check the number of cases from stroke and not stroke ")
 
@@ -285,55 +297,55 @@ def eda():
 
     X = df.iloc[:,:-1]
     y = df.iloc[:,-1]
-    st.write("Independent variables")
+    st.write("### Independent variables")
     st.write(X)
-    st.write("Dependent variable")
+    st.write("### Dependent variable")
     st.write(y)
 
 
     from sklearn.model_selection import train_test_split
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
-    st.write("### Test and training data splitting")
-    st.code("""
-    from sklearn.model_selection import train_test_split
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
-    """)
+    # st.write("### Test and training data splitting")
+    # st.code("""
+    # from sklearn.model_selection import train_test_split
+    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+    # """)
 
     sc = StandardScaler()
     X_train = sc.fit_transform(X_train)
     X_test = sc.transform(X_test)
 
-    st.write("### Standard scaling")
-    st.code("""
-    sc = StandardScaler()
-    X_train = sc.fit_transform(X_train)
-    X_test = sc.transform(X_test)
-    """)
+    # st.write("### Standard scaling")
+    # st.code("""
+    # sc = StandardScaler()
+    # X_train = sc.fit_transform(X_train)
+    # X_test = sc.transform(X_test)
+    # """)
 
-    st.write("""
+    # st.write("""
     
-    ### SMOTE( Synthetic Minority Over-Sampling Technique)
-    Used to handle imbalance data
+    # ### SMOTE( Synthetic Minority Over-Sampling Technique)
+    # Used to handle imbalance data
 
-    """)
+    # """)
 
-    st.code("""
-    print("Before OverSampling, counts of label '1': {}".format(sum(y_train==1)))
-    print("Before OverSampling, counts of label '0': {} \n".format(sum(y_train==0)))
+    # st.code("""
+    # print("Before OverSampling, counts of label '1': {}".format(sum(y_train==1)))
+    # print("Before OverSampling, counts of label '0': {} \n".format(sum(y_train==0)))
 
-    sm = SMOTE(random_state=2)
-    X_train_res, y_train_res = sm.fit_resample(X_train, y_train.ravel())
+    # sm = SMOTE(random_state=2)
+    # X_train_res, y_train_res = sm.fit_resample(X_train, y_train.ravel())
 
-    print('After OverSampling, the shape of train_X: {}'.format(X_train_res.shape))
-    print('After OverSampling, the shape of train_y: {} \n'.format(y_train_res.shape))
+    # print('After OverSampling, the shape of train_X: {}'.format(X_train_res.shape))
+    # print('After OverSampling, the shape of train_y: {} \n'.format(y_train_res.shape))
 
-    print("After OverSampling, counts of label '1': {}".format(sum(y_train_res==1)))
-    print("After OverSampling, counts of label '0': {}".format(sum(y_train_res==0)))
-    """)
+    # print("After OverSampling, counts of label '1': {}".format(sum(y_train_res==1)))
+    # print("After OverSampling, counts of label '0': {}".format(sum(y_train_res==0)))
+    # """)
 
-    st.write("Before OverSampling, counts of label '1': {}".format(sum(y_train==1)))
-    st.write("Before OverSampling, counts of label '0': {} \n".format(sum(y_train==0)))
+    # st.write("Before OverSampling, counts of label '1': {}".format(sum(y_train==1)))
+    # st.write("Before OverSampling, counts of label '0': {} \n".format(sum(y_train==0)))
 
     sm = SMOTE(random_state=2)
     X_train_res, y_train_res = sm.fit_resample(X_train, y_train.ravel())
@@ -344,11 +356,34 @@ def eda():
     st.write("After OverSampling, counts of label '1': {}".format(sum(y_train_res==1)))
     st.write("After OverSampling, counts of label '0': {}".format(sum(y_train_res==0)))
 
-    st.write("### KNN")
-    st.write("K-nearest neighbor")
-    st.write("Finding the best K neighbor with highest test accuracy")
+    # st.write("### KNN")
+    # st.write("K-nearest neighbor")
+    # st.write("Finding the best K neighbor with highest test accuracy")
 
-    st.code("""
+    # st.code("""
+    # from sklearn.neighbors import KNeighborsClassifier  
+    # best_k = -1
+    # best_test_score = -1
+
+    # for i in range(1,11):    
+    #     classifier= KNeighborsClassifier(n_neighbors=i, p=1, weights = "uniform")  
+    # #     classifier.fit(X_train, y_train)
+    #     classifier.fit(X_train_res, y_train_res.ravel())
+        
+    #     y_pred= classifier.predict(X_test)
+        
+    #     print("Neighbour = {k}".format(k = i))
+    # #     print("The training accuracy: {score}".format(score = (classifier.score(X_train,y_train)*100).round(2)))
+    #     print("The training accuracy: {score}".format(score = (classifier.score(X_train_res,y_train_res.ravel())*100).round(2)))
+    #     print('The Test accuracy: {score}'.format(score = (classifier.score(X_test,y_test)*100).round(2)))
+        
+    #     if classifier.score(X_test,y_test) > best_test_score:
+    #         best_test_score = classifier.score(X_test, y_test)
+    #         best_k = i
+
+    # print("Best k-neighbor= {k}".format(k = best_k))
+    # """)
+
     from sklearn.neighbors import KNeighborsClassifier  
     best_k = -1
     best_test_score = -1
@@ -360,51 +395,28 @@ def eda():
         
         y_pred= classifier.predict(X_test)
         
-        print("Neighbour = {k}".format(k = i))
+        # st.write("**Neighbour** = {k}".format(k = i))
     #     print("The training accuracy: {score}".format(score = (classifier.score(X_train,y_train)*100).round(2)))
-        print("The training accuracy: {score}".format(score = (classifier.score(X_train_res,y_train_res.ravel())*100).round(2)))
-        print('The Test accuracy: {score}'.format(score = (classifier.score(X_test,y_test)*100).round(2)))
-        
+        # st.write("The training accuracy: {score}".format(score = (classifier.score(X_train_res,y_train_res.ravel())*100).round(2)))
+        # st.write('The Test accuracy: {score}'.format(score = (classifier.score(X_test,y_test)*100).round(2)))
+        # st.write("\n")
         if classifier.score(X_test,y_test) > best_test_score:
             best_test_score = classifier.score(X_test, y_test)
             best_k = i
 
-    print("Best k-neighbor= {k}".format(k = best_k))
-    """)
+    # st.write("#### Best k-neighbor= {k}".format(k = best_k))
 
-    from sklearn.neighbors import KNeighborsClassifier  
-    best_k = -1
-    best_test_score = -1
-
-    for i in range(1,11):    
-        classifier= KNeighborsClassifier(n_neighbors=i, p=1, weights = "uniform")  
-    #     classifier.fit(X_train, y_train)
-        classifier.fit(X_train_res, y_train_res.ravel())
-        
-        y_pred= classifier.predict(X_test)
-        
-        st.write("**Neighbour** = {k}".format(k = i))
-    #     print("The training accuracy: {score}".format(score = (classifier.score(X_train,y_train)*100).round(2)))
-        st.write("The training accuracy: {score}".format(score = (classifier.score(X_train_res,y_train_res.ravel())*100).round(2)))
-        st.write('The Test accuracy: {score}'.format(score = (classifier.score(X_test,y_test)*100).round(2)))
-        st.write("\n")
-        if classifier.score(X_test,y_test) > best_test_score:
-            best_test_score = classifier.score(X_test, y_test)
-            best_k = i
-
-    st.write("#### Best k-neighbor= {k}".format(k = best_k))
-
-    st.write("### Predicting with KNN")
+    # st.write("### Predicting with KNN")
 
     classifier= KNeighborsClassifier(n_neighbors=best_k, p=2)  
     classifier.fit(X_train_res, y_train_res.ravel())
     y_pred= classifier.predict(X_test)
 
-    st.code("""
-    classifier= KNeighborsClassifier(n_neighbors=best_k, p=2)  
-classifier.fit(X_train_res, y_train_res.ravel())
-y_pred= classifier.predict(X_test)
-    """)
+#     st.code("""
+#     classifier= KNeighborsClassifier(n_neighbors=best_k, p=2)  
+# classifier.fit(X_train_res, y_train_res.ravel())
+# y_pred= classifier.predict(X_test)
+#     """)
     
     # cnf_matrix = confusion_matrix(y_test, y_pred)
 
