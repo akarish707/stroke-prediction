@@ -5,7 +5,7 @@ def about_stroke():
     col11, col12 = st.columns([2,2])
     
     with col11:
-        st.write("# What is stroke?")
+        st.write("# What is stroke?🤔")
         # st.image("asset/image/stock-photo-walk-training-and-rehabilitation-process-old-asian-stroke-patient-learning-to-use-walker-with-1781080226.jpg")
     
     with col12:
@@ -18,7 +18,7 @@ def about_stroke():
 
     col21,col22 = st.columns([1,2]) 
     with col21:
-        st.write("## What are the Symptoms of Stroke?")
+        st.write("## 🕵🏻‍♂️ What are the Symptoms of Stroke?")
     
     with col22:
         st.write("""
@@ -31,40 +31,47 @@ def about_stroke():
     
     col31, col32= st.columns([2,3])
     with col31:
-        st.write("## Controllable Risk Factors for Stroke:")
+        st.write("## 👨‍🔧Controllable Risk Factors for Stroke:")
 
     
     with col32:
         st.write("""
-        - [High blood pressure](https://www.webmd.com/hypertension-high-blood-pressure/ss/slideshow-hypertension-overview)
-        - [Atrial fibrillation](https://www.webmd.com/heart-disease/atrial-fibrillation/a-fib-overview)
-        - [Uncontrolled diabetes](https://www.webmd.com/cholesterol-management/cholesterol-assessment/default.htm)
-        - High cholesterol
-        - Smoking
-        - Excessive alcohol intake
-        - Obesity
-        - Carotid or [coronary artery disease](https://www.webmd.com/heart-disease/heart-disease-coronary-artery-disease)
+        🩸 [High blood pressure](https://www.webmd.com/hypertension-high-blood-pressure/ss/slideshow-hypertension-overview)
+        
+        🫀 [Atrial fibrillation](https://www.webmd.com/heart-disease/atrial-fibrillation/a-fib-overview)
+        
+        🍭 [Uncontrolled diabetes](https://www.webmd.com/cholesterol-management/cholesterol-assessment/default.htm)
+        
+        🍕 High cholesterol
+        
+        🚬 Smoking
+        
+        🍻 Excessive alcohol intake
+        
+        🍟 Obesity
+        
+        🫀 Carotid or [coronary artery disease](https://www.webmd.com/heart-disease/heart-disease-coronary-artery-disease)
         """)
     
-    st.write("## Uncontrollable Risk Factors for Stroke:")
+    st.write("## 🚨Uncontrollable Risk Factors for Stroke:")
 
     col41, col42, col43, col44 = st.columns([1,1,1,1])
     # with col41:
     #     st.write("## Uncontrollable Risk Factors for Stroke:")
     with col41:
-        st.write("> ### Age (>65)")
+        st.write("> #### 👵🏻Age (>65)")
     
     with col42:
-        st.write("> ##### Gender (Men have more strokes, but women have deadlier strokes")
+        st.write("> ##### 👫Gender (Men have more strokes, but women have deadlier strokes")
 
     with col43:
-        st.write("> ##### Race (African-Americans are at increased risk)")
+        st.write("> ##### 🧔🏾‍♂️ 👩🏾‍🦳Race (African-Americans are at increased risk)")
 
     with col44:
-        st.write("> ##### Family history of stroke")
+        st.write("> ##### 👨‍👩‍👧‍👦Family history of stroke")
 
     st.write("""
-    ## More info...
+    ## 👀More info...
     
     > Your doctor can evaluate your risk for stroke and help you control your risk factors. Sometimes, people experience warning signs before a stroke occurs.
 

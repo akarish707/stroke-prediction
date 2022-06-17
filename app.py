@@ -6,7 +6,7 @@ from evaluation import *
 
 def main():
     st.set_page_config(page_title="Stroke Prediction", page_icon="🩺")
-    st.title("Stroke Prediction")
+    st.title("🩺Stroke Prediction")
     st.write("----")
 
     page = st.selectbox("Navigation",['Home', 'Predict your health','Exploratory Data Analysis',"Evaluation Metric", 'About us'])
