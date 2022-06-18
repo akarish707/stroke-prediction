@@ -260,8 +260,8 @@ def eda():
     plt.cla()
     plt.clf()
 
-    st.header("Machine Learning Modelling")
-    st.subheader("Prediction using KNN")
+    # st.header("Machine Learning Modelling")
+    # st.subheader("Prediction using KNN")
 
     st.write("### Encode Categorical Variable")
 
@@ -350,11 +350,11 @@ def eda():
     sm = SMOTE(random_state=2)
     X_train_res, y_train_res = sm.fit_resample(X_train, y_train.ravel())
 
-    st.write('After OverSampling, the shape of X_train: {}'.format(X_train_res.shape))
-    st.write('After OverSampling, the shape of y_train: {} \n'.format(y_train_res.shape))
+    # st.write('After OverSampling, the shape of X_train: {}'.format(X_train_res.shape))
+    # st.write('After OverSampling, the shape of y_train: {} \n'.format(y_train_res.shape))
 
-    st.write("After OverSampling, counts of label '1': {}".format(sum(y_train_res==1)))
-    st.write("After OverSampling, counts of label '0': {}".format(sum(y_train_res==0)))
+    # st.write("After OverSampling, counts of label '1': {}".format(sum(y_train_res==1)))
+    # st.write("After OverSampling, counts of label '0': {}".format(sum(y_train_res==0)))
 
     # st.write("### KNN")
     # st.write("K-nearest neighbor")
