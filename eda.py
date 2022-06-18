@@ -21,6 +21,7 @@ import pickle
 
 def eda():
     st.header("Data Preprocessing")
+    st.write("##### 🔎Data retrieved from: [Stroke Dataset Kaggle](https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset)")
     df = pd.read_csv("healthcare-dataset-stroke-data.csv")
 
     st.markdown("""
